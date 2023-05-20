@@ -28,7 +28,7 @@ if __name__ == "__main__":
     # print('#############  __rsub__tests######')
     # matrix = Matrix([[1,2,3], [4,5,6]])
     # matrix1 = Matrix([[1,1,1], [1,1,6]])
-    # result = matrix.__rsub__(matrix1)
+    # result = matrix - matrix1
     # result.print_data()
 
     # print('#############  __truediv__tests######')
@@ -39,3 +39,8 @@ if __name__ == "__main__":
     # matrix = Matrix([[1,2,3], [4,5,6]])
     # result = matrix.__truediv__(4)
     # result.print_data()
+    print('#############  __mul__tests######')
+    matrix = Matrix([[1,2,3], [4,5,6]])
+    result = matrix * 2
+    result.print_data()
+    

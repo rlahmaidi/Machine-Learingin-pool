@@ -129,6 +129,33 @@ class Matrix:
 # # mul : scalars, vectors and matrices , can have errors with vectors and matrices,
 # # returns a Vector if we perform Matrix * Vector mutliplication.
 # __mul__
+    @dispatch(int or float)
+    def __mul__(self,scalar):
+        # ishould test for error when passing wrong types
+        lst = []
+        for inside_lst in self.data:
+            lst.append([x * scalar for x in inside_lst])
+        return Matrix(lst)
+            
+    @dispatch(Matrix)
+    def __mul__(self, matrix):
+        # ishould test with wrong type
+        if self.shape[1] != matrix.shape[0]:
+            print("matix-matrix Mutiplication can only happen\
+             between two matrices of compatible dimension: (m × n) and (n × p),")
+             print("i.e: the number of columns of the first matrice is\
+             the number of lines in the second!!!")
+             sys.exit()
+        else:
+            for inside_lst in self.data:
+                for z in zip([line for line in matrix.data]):
+                    
+
+
+
+    # @dispatch(Vector)
+    # def __mul__(self, vector):
+
 # __rmul__
 # __str__
 # __repr__
