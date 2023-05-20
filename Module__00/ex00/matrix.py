@@ -30,7 +30,30 @@ class Matrix:
             sys.exit()
         else:
             lst = []
-# __radd__
+            for x,y in zip(self.data, matrix.data):
+                tmp_lst = []
+                for i in range(len(x)):
+                    tmp_lst.append(x[i] + y[i])
+                lst.append(tmp_lst)
+        return Matrix(lst)
+        
+    # __radd__
+    def __radd__(self, matrix):
+        if not isinstance(matrix, Matrix):
+            print("Error: a matix can only be added to another proper matrix")
+            sys.exit()
+        elif self.shape != matrix.shape:
+            print("Error: a matrix can only be added to another matrix with some dimensions")
+            sys.exit()
+        else:
+            lst = []
+            for x,y in zip(self.data, matrix.data):
+                tmp_lst = []
+                for i in range(len(x)):
+                    tmp_lst.append(x[i] + y[i])
+                lst.append(tmp_lst)
+        return Matrix(lst)
+
 # # sub : only matrices of same dimensions.
 # __sub__
 # __rsub__
