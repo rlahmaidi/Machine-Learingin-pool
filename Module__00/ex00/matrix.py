@@ -32,6 +32,22 @@ class Matrix:
                 tmp_lst.append(line[i])
             lst.append(tmp_lst)
         return Matrix(lst)
+    def __str__(self):
+        return "This is a matrix class :\
+            \nGoal: Manipulation and understanding of basic matrix operations.\
+            \nType of operation:\
+            \n- matrix-matrix operations( *, +, -)\
+            \n- scalar-matrix operation(*, /)\
+            \n- vector-matrix operations(*)"
+
+    def __repr__(self):
+        return "This is a matrix class :\
+            \nGoal: Manipulation and understanding of basic matrix operations.\
+            \nType of operation:\
+            \n- matrix-matrix operations( *, +, -)\
+            \n- scalar-matrix operation(*, /)\
+            \n- vector-matrix operations(*)"
+
 # add : only matrices of same dimensions.
     def __add__(self, matrix):
         if not isinstance(matrix, Matrix):

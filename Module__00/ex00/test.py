@@ -62,5 +62,11 @@ if __name__ == "__main__":
     # B = Matrix([[1,1,1],[2,2,2],[1,1,1]])
     # result = A.__rmul__(B)
     # result.print_data()
+    print("############ __str__ tests######")
+    A = Matrix([[1,1,1],[2,2,2],[3,3,3]])
+    print(A.__str__())
+    print("############  __repr__ tests")
+    A = Matrix([[1,1,1],[2,2,2],[3,3,3]])
+    print(A.__repr__())
     
     
