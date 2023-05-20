@@ -14,10 +14,15 @@
 #     print("no")
 
 ### testing zip and enumurate
-lst = [["a", "b", "c"], ["d","e","f"]]
-lst1 = [["first", "second", "third"], "fourth", "fifth", "sixth"]
-# for i,(letter, string) in enumerate(zip(lst, lst1)):
-#     print(i)
-#     print(letter)
-#     print(string)
-print(lst + lst1)
+# lst = [["a", "b", "c"], ["d","e","f"]]
+# lst1 = [["first", "second", "third"], "fourth", "fifth", "sixth"]
+# # for i,(letter, string) in enumerate(zip(lst, lst1)):
+# #     print(i)
+# #     print(letter)
+# #     print(string)
+# print(lst + lst1)
+
+## list multiplied by a scalar
+lst = [[1,2],[3,4]]
+tmp = [second * 2 for first in lst for second in first]
+print(tmp)

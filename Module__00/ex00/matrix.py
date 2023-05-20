@@ -7,6 +7,11 @@ class Matrix:
         if not isinstance(data, list):
             print("Error:please provide a proper matrix or a proper shape of matrix")
             sys.exit()
+        for i in data:
+            if len(i) != len(data[0]):
+                print('matrix lines should be the same size')
+                print("matices always have a rectangular shape!!!")
+                sys.exit()
         self.data = data
         self.shape = (len(data),len(data[0]))
     @dispatch(int,int)
@@ -36,7 +41,7 @@ class Matrix:
                     tmp_lst.append(x[i] + y[i])
                 lst.append(tmp_lst)
         return Matrix(lst)
-        
+
     # __radd__
     def __radd__(self, matrix):
         if not isinstance(matrix, Matrix):
@@ -56,10 +61,71 @@ class Matrix:
 
 # # sub : only matrices of same dimensions.
 # __sub__
+    def __sub__(self, matrix):
+        if not isinstance(matrix, Matrix):
+            print("Error: a matix can only be added to another proper matrix")
+            sys.exit()
+        elif self.shape != matrix.shape:
+            print("Error: a matrix can only be added to another matrix with some dimensions")
+            sys.exit()
+        else:
+            lst = []
+            for x,y in zip(self.data, matrix.data):
+                tmp_lst = []
+                for i in range(len(x)):
+                    tmp_lst.append(x[i] - y[i])
+                lst.append(tmp_lst)
+        return Matrix(lst)
+
+
 # __rsub__
+    def __rsub__(self, matrix):
+        if not isinstance(matrix, Matrix):
+            print("Error: a matix can only be added to another proper matrix")
+            sys.exit()
+        elif self.shape != matrix.shape:
+            print("Error: a matrix can only be added to another matrix with some dimensions")
+            sys.exit()
+        else:
+            lst = []
+            for x,y in zip(self.data, matrix.data):
+                tmp_lst = []
+                for i in range(len(x)):
+                    tmp_lst.append(x[i] - y[i])
+                lst.append(tmp_lst)
+        return Matrix(lst)
+
 # # div : only scalars.
 # __truediv__
+    def __truediv__(self,scalar):
+        if not isinstance(scalar, (int, float)):
+            print("Error: you can only divise a matix\
+            by a scalar(i.e int or float)")
+            sys.exit()
+        elif scalar == 0: 
+            print("you can't devide a matrix by zero??!!!!!")
+            sys.exit()
+        else:
+            lst = []
+            for inside_lst in self.data:
+                lst.append([x / scalar for x in inside_lst])
+        return Matrix(lst)
+
 # __rtruediv__
+    def __rtruediv__(self,scalar):
+        if not isinstance(scalar, (int, float)):
+            print("Error: you can only divise a matix\
+            by a scalar(i.e int or float)")
+            sys.exit()
+        elif scalar == 0: 
+            print("you can't devide a matrix by zero??!!!!!")
+            sys.exit()
+        else:
+            lst = []
+            for inside_lst in self.data:
+                lst.append([x / scalar for x in inside_lst])
+        return Matrix(lst)
+
 # # mul : scalars, vectors and matrices , can have errors with vectors and matrices,
 # # returns a Vector if we perform Matrix * Vector mutliplication.
 # __mul__
