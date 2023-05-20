@@ -1,4 +1,4 @@
-from matrix import Matrix
+from matrix import Matrix, Vector
 
 if __name__ == "__main__":
     # #  @@@@@@@@@@@@@@constuctors
@@ -62,11 +62,29 @@ if __name__ == "__main__":
     # B = Matrix([[1,1,1],[2,2,2],[1,1,1]])
     # result = A.__rmul__(B)
     # result.print_data()
-    print("############ __str__ tests######")
-    A = Matrix([[1,1,1],[2,2,2],[3,3,3]])
-    print(A.__str__())
-    print("############  __repr__ tests")
-    A = Matrix([[1,1,1],[2,2,2],[3,3,3]])
-    print(A.__repr__())
+    # print("############ __str__ tests######")
+    # A = Matrix([[1,1,1],[2,2,2],[3,3,3]])
+    # print(A.__str__())
+    # print("############  __repr__ tests")
+    # A = Matrix([[1,1,1],[2,2,2],[3,3,3]])
+    # print(A.__repr__()
+    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@vector tests@@@@@@@@@@")
+    A = Vector([[1,10,1]])
+    B = Vector([[1,1,2]])
+    C = Vector([[1],[2],[3]])
+    D = Vector([[10],[10],[10]])
+    dot_of_row = A.dot(B)
+    dot_of_column = C.dot(D)
+    print(dot_of_row)
+    print(dot_of_column)
+    result = A + B
+    result.print_data()
+    print("$$$$$$ vector - vector")
+    result = A - B
+    result.print_data()
+    m = Matrix([[1,2],[1,2]])
+    print(A.__class__)
+    print(m.__class__)
+    print(result.__class__)
     
     

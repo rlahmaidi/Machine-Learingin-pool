@@ -229,3 +229,36 @@ class Matrix:
         print(self.data) 
         print("the shape  of the matrix is:")
         print(self.shape)
+
+
+class Vector(Matrix):
+    def __init__(self,data):
+        if not isinstance(data,list) or len(data) == 0 or len(data[0]) == 0:
+            print("Error: please provide a proper list to initialize your vector")
+            sys.exit()
+        for element in data:
+            if not all([isinstance(el,(float, int)) for el in element]):
+                print("Error: please provide a proper list to initialize your vector")
+                sys.exit()
+        if len(data) > 1:
+            for element in data:
+                if len(element) != 1:
+                    print("Error: please provide a proper list to initialize your vector")
+                    sys.exit()
+        self.data = data
+        self.shape = (len(data), len(data[0]))
+        
+    def dot(self,vector):
+        summ = 0
+        if not isinstance(vector, Vector):
+            print("please provide a proper vector")
+        elif vector.shape != self.shape:
+            print(". product can only done between 2 vectors of the same shape")
+        elif self.shape[0] == 1:
+            # summ = [self.data[x] + vector.data[x] for x in range(0,len(self.data))]
+            for i in range(len(self.data[0])):
+                summ += self.data[0][i] * vector.data[0][i]
+        else:
+            for i in range(len(self.data)):
+                summ += self.data[i][0] * vector.data[i][0]
+        return summ
