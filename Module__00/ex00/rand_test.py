@@ -39,11 +39,24 @@
 # for z in zip(lst, lst1):
 #     print(z)
 
-def addition(lst):
-    return lst[0]
- 
-# We double all numbers using map()
-numbers = [[1, 2], [3, 4],[5,6]]
-result = map(addition, numbers)
-print(list(result))
-# print(numbers)
+# my own solution to transpose
+# matrix = [[1,2,3],
+#           [4,5,6],
+#           [7,8,9]
+#           ]
+# lst = []
+# for i in range(len(matrix)):
+#     tmp_lst = []
+#     for line in matrix:
+#         tmp_lst.append(line[i])
+#     lst.append(tmp_lst)
+# print(lst)
+
+lst = [2,1,1]
+lst2 = [2,3,4]
+s = 0
+for i in range(len(lst)):
+    s += lst[i] * lst2[i]
+print(s)
+
+print(sum([lst[i] * lst2[i] for i in range(len(lst))]))
