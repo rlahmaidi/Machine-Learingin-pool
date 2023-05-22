@@ -33,7 +33,7 @@ class TinyStatistician:
             return (x[int(len(x) / 2) - 1] + x[int(len(x) / 2)]) / 2
         else:
             x = sorted(x)
-            return x[int(len(x) / 2)]
+            return float(x[int(len(x) / 2)])
         
     def quartile(self,x):
         if not isinstance(x, (list, np.ndarray)):
@@ -87,10 +87,10 @@ if __name__ == "__main__":
     # print(TinyStatistician().mean(lst))
     # print(TinyStatistician().mean(array))
     # print("@@@@@@@@@@@@@ median @@@@@@")
-    # lst = [1,2,4,1]
-    # array = np.array([1,2,4,1]) #[1,1,2,4]
+    # lst = [13, 16, 23, 26, 26, 35, 35, 37]
+    # array = np.array([13, 16, 23, 26, 26, 35, 35, 37]) #[1,1,2,4]
     # print(TinyStatistician().median(lst))
-    # print(TinyStatistician().median(array))
+    # print(np.median(array))
     print("@@@@@@@@@@@@@ quaritles @@@@@@")
     a = [1, 42, 300, 10, 59]
     lst = [13, 16, 23, 26, 26, 35, 35, 37]
@@ -99,3 +99,4 @@ if __name__ == "__main__":
     # print(TinyStatistician().quartile(array))
     # print("correcto result is",array.quaritles)
     print(TinyStatistician().median(a))
+    print(np.median(np.array(a)))

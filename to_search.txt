@@ -1,0 +1,5 @@
+1-read about dispatch not allowing the function
+to take a wrong type
+2 - go back to ft_container and read the iterator classes carrefully
+in hope to go back with a clear understanding of what iterables
+are in python
