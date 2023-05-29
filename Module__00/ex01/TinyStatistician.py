@@ -100,5 +100,3 @@ if __name__ == "__main__":
     # print(TinyStatistician().quartile(a))
     # print(TinyStatistician().quartile(array))
     # print("correcto result is",array.quaritles)
-    print(TinyStatistician().median(a))
-    print(np.median(np.array(a)))
