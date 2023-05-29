@@ -92,8 +92,10 @@ if __name__ == "__main__":
     # print(TinyStatistician().median(lst))
     # print(np.median(array))
     print("@@@@@@@@@@@@@ quaritles @@@@@@")
-    a = [1, 42, 300, 10, 59]
-    lst = [13, 16, 23, 26, 26, 35, 35, 37]
+    a = [6, 1, 9, 4]
+
+
+    lst = [7, 2, 9, 1, 5, 6]
     array = np.array([13, 16, 23, 26, 26, 35, 35, 37])  # 9 *3 /4 27 /4
     # print(TinyStatistician().quartile(a))
     # print(TinyStatistician().quartile(array))
