@@ -47,16 +47,14 @@ class TinyStatistician:
         first = []
         third = []
         if len(sort) % 2 == 0:
-            # print("the sort is", sort)
             first = sort[:int(len(sort) / 2)]
-            third = sort[int(len(sort) / 2) - 1:]
-            # print("the len(sort) is ", len(sort))
-            # print("the first data is ", first)
-            # print("the third data is ", third)
+            third = sort[int(len(sort) / 2):]
         else:
             print("the sort is", sort)
-            first = sort[:int(len(sort) / 2)]
-            third = sort[int(len(sort) / 2) - 1:]
+            first = sort[:int(len(sort) / 2) + 1]
+            third = sort[int(len(sort) / 2):]
+            print("is the median included in third", third)
+            print("this is first", first)
             # first = sort[:int(len(sort) / 2)]
             # third = sort[int(len(sort) / 2) + 1:]
             # print("the len(sort) is ", len(sort))
@@ -92,9 +90,14 @@ if __name__ == "__main__":
     # print(TinyStatistician().median(lst))
     # print(np.median(array))
     print("@@@@@@@@@@@@@ quaritles @@@@@@")
-    a =  [1, 42, 300, 10, 59]
-
-    array = np.array([1, 42, 300, 10, 59])  # 9 *3 /4 27 /4
-    print(TinyStatistician().quartile(a))
-    print(TinyStatistician().quartile(array))
+    odd =  [1, 42, 300, 10, 59]
+    even = [1, 42, 300, 10, 59,60]
+    odd_array = np.array([1, 42, 300, 10, 59])
+    even_array = np.array([1, 42, 300, 10, 59, 60])
+    print("######odd number of data #####")
+    print(TinyStatistician().quartile(odd))
+    print(TinyStatistician().quartile(odd_array))
+    print("######### even number of data #####")
+    print(TinyStatistician().quartile(even))
+    # print(TinyStatistician().quartile(even_array))
     # print("correcto result is",array.quaritles())
