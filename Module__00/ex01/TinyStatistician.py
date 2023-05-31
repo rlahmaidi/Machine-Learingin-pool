@@ -47,21 +47,21 @@ class TinyStatistician:
         first = []
         third = []
         if len(sort) % 2 == 0:
-            print("the sort is", sort)
+            # print("the sort is", sort)
             first = sort[:int(len(sort) / 2)]
             third = sort[int(len(sort) / 2) - 1:]
-            print("the len(sort) is ", len(sort))
-            print("the first data is ", first)
-            print("the third data is ", third)
+            # print("the len(sort) is ", len(sort))
+            # print("the first data is ", first)
+            # print("the third data is ", third)
         else:
             print("the sort is", sort)
             first = sort[:int(len(sort) / 2)]
             third = sort[int(len(sort) / 2) - 1:]
             # first = sort[:int(len(sort) / 2)]
             # third = sort[int(len(sort) / 2) + 1:]
-            print("the len(sort) is ", len(sort))
-            print("the first data is ", first)
-            print("the third data is ", third)
+            # print("the len(sort) is ", len(sort))
+            # print("the first data is ", first)
+            # print("the third data is ", third)
         first_quartile = self.median(first) 
         third_quartile = self.median(third)
         return[first_quartile, third_quartile]
@@ -92,11 +92,9 @@ if __name__ == "__main__":
     # print(TinyStatistician().median(lst))
     # print(np.median(array))
     print("@@@@@@@@@@@@@ quaritles @@@@@@")
-    a = [6, 1, 9, 4]
+    a =  [1, 42, 300, 10, 59]
 
-
-    lst = [7, 2, 9, 1, 5, 6]
-    array = np.array([13, 16, 23, 26, 26, 35, 35, 37])  # 9 *3 /4 27 /4
-    # print(TinyStatistician().quartile(a))
-    # print(TinyStatistician().quartile(array))
-    # print("correcto result is",array.quaritles)
+    array = np.array([1, 42, 300, 10, 59])  # 9 *3 /4 27 /4
+    print(TinyStatistician().quartile(a))
+    print(TinyStatistician().quartile(array))
+    # print("correcto result is",array.quaritles())
