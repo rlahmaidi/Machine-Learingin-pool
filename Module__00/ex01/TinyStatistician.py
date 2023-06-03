@@ -65,19 +65,19 @@ class TinyStatistician:
             return None
         elif isinstance(x, np.ndarray) and x.size == 0:
             return None
-        elif not isinstance(p,(int, float)) or p > 100 or p < 0:
-            print("the percentile you want to calculate should be betwen 0 and 100")
+        elif not isinstance(p, (int, float)) or p > 100 or p < 0:
+            print("the percentile value should be betwen 0 and 100")
         else:
             N = len(x)
             x = sorted(x)
-            index = (N - 1) *p / 100
+            index = (N - 1) * p / 100
             if index.is_integer():
                 return float(x[int(index)])
             floored_index = int(index)
             ceiled_index = int(index) + 1
-            floored_value = x[floored_index]
-            ceiled_value = x[ceiled_index]
-            return float(floored_value + (index - floored_index) *(ceiled_value - floored_value))
+            fl_val = x[floored_index]
+            cl_val = x[ceiled_index]
+            return float(fl_val + (index - floored_index) * (cl_val - fl_val))
 
     def var(self, x):
         if not isinstance(x, (list, np.ndarray)):
@@ -89,13 +89,13 @@ class TinyStatistician:
             return None
         else:
             mean = TinyStatistician().mean(x)
-            l = len(x)
+            lenght = len(x)
             lst = []
             for i in x:
                 lst.append((i - mean)**2)
-            return float(sum(lst) / (l - 1))
+            return float(sum(lst) / (lenght - 1))
 
-    def std(self,x):
+    def std(self, x):
         if not isinstance(x, (list, np.ndarray)):
             print('Error: function only accept a list or a numpy array')
             return None
@@ -106,7 +106,8 @@ class TinyStatistician:
         else:
             variance = TinyStatistician().var(x)
             return sqrt(variance)
-    
+
+
 if __name__ == "__main__":
     # print("@@@@@@@@@@@@ mean @@@@@@@@@")
     # lst = [1,2,3]
@@ -142,8 +143,8 @@ if __name__ == "__main__":
     # print("the variance of ",a)
     # print("is",TinyStatistician().var(a))
     # print("for numpy aray:",TinyStatistician().var(array))
-    print("@@@@@@@@@@@@@@@@@  variance @@@@@@@@@@@")
-    a =  [1, 42, 300, 10, 59]
-    array = np.array(a)
-    print("the standard deviation of a = ", a)
-    print("is ", TinyStatistician().std(a))
+    # print("@@@@@@@@@@@@@@@@@  variance @@@@@@@@@@@")
+    # a = [1, 42, 300, 10, 59]
+    # array = np.array(a)
+    # print("the standard deviation of a = ", a)
+    # print("is ", TinyStatistician().std(a))
