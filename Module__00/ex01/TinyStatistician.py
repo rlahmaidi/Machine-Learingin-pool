@@ -1,6 +1,6 @@
 import numpy as np
 import sys
-from typing import Union, List
+from math import sqrt
 
 
 class TinyStatistician:
@@ -95,6 +95,17 @@ class TinyStatistician:
                 lst.append((i - mean)**2)
             return float(sum(lst) / (l - 1))
 
+    def std(self,x):
+        if not isinstance(x, (list, np.ndarray)):
+            print('Error: function only accept a list or a numpy array')
+            return None
+        elif isinstance(x, list) and len(x) == 0:
+            return None
+        elif isinstance(x, np.ndarray) and x.size == 0:
+            return None
+        else:
+            variance = TinyStatistician().var(x)
+            return sqrt(variance)
     
 if __name__ == "__main__":
     # print("@@@@@@@@@@@@ mean @@@@@@@@@")
@@ -131,3 +142,8 @@ if __name__ == "__main__":
     # print("the variance of ",a)
     # print("is",TinyStatistician().var(a))
     # print("for numpy aray:",TinyStatistician().var(array))
+    print("@@@@@@@@@@@@@@@@@  variance @@@@@@@@@@@")
+    a =  [1, 42, 300, 10, 59]
+    array = np.array(a)
+    print("the standard deviation of a = ", a)
+    print("is ", TinyStatistician().std(a))
