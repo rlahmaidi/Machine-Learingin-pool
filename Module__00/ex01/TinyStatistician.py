@@ -79,6 +79,21 @@ class TinyStatistician:
             ceiled_value = x[ceiled_index]
             return float(floored_value + (index - floored_index) *(ceiled_value - floored_value))
 
+    def var(self, x):
+        if not isinstance(x, (list, np.ndarray)):
+            print('Error: function only accept a list or a numpy array')
+            return None
+        elif isinstance(x, list) and len(x) == 0:
+            return None
+        elif isinstance(x, np.ndarray) and x.size == 0:
+            return None
+        else:
+            mean = TinyStatistician().mean(x)
+            l = len(x)
+            lst = []
+            for i in x:
+                lst.append((i - mean)**2)
+            return float(sum(lst) / (l - 1))
 
     
 if __name__ == "__main__":
@@ -104,9 +119,15 @@ if __name__ == "__main__":
     # print(TinyStatistician().quartile(even))
     # print(TinyStatistician().quartile(even_array))
     # print("correcto result is",array.quaritles())
-    print("@@@@@@@@@@@@  percentile @@@@@@@@@@@")
-    a =  [1, 42, 300, 10, 59]
+    # print("@@@@@@@@@@@@  percentile @@@@@@@@@@@")
+    # a =  [1, 42, 300, 10, 59]
 
-    array = np.array(a)
-    print("numpy: ",np.percentile(array,100))
-    print("mine",TinyStatistician().percentile(array,100))
+    # array = np.array(a)
+    # print("numpy: ",np.percentile(array,100))
+    # print("mine",TinyStatistician().percentile(array,100))
+    # print("@@@@@@@@@@@@@@@@@@ var @@@@@@@@@@@")
+    # a =  [1, 42, 300, 10, 59]
+    # array = np.array(a)
+    # print("the variance of ",a)
+    # print("is",TinyStatistician().var(a))
+    # print("for numpy aray:",TinyStatistician().var(array))

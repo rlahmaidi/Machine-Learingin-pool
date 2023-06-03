@@ -8,9 +8,10 @@
 #     print("yes")
 # else:
 #     print("no")
-y = 10// 1
-z = 10 /1
-print(type(z))
-print(type(y))
+# y = 10// 1
+# z = 10 /1
+# print(type(z))
+# print(type(y))
+print(2**2)
 
 
